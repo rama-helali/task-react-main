@@ -6,6 +6,8 @@ import AppContextProvider from "./context/app/provider";
 import { BrowserRouter } from "react-router-dom";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import EditContextProvider from "./context/edit/provider";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 const LazyComponent = React.lazy(() => import("./App"));
 
@@ -14,35 +16,37 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <BrowserRouter>
-  <EditContextProvider>
-      <AppContextProvider>
-        <ConfigProvider
-          theme={{
-            components: {
-              DatePicker: {
-                colorLink: "#F5DEB4",
-                colorLinkHover: "#7E4F25",
+    <DndProvider backend={HTML5Backend}>
+      <EditContextProvider>
+        <AppContextProvider>
+          <ConfigProvider
+            theme={{
+              components: {
+                DatePicker: {
+                  colorLink: "#F5DEB4",
+                  colorLinkHover: "#7E4F25",
+                },
               },
-            },
-            token: {
-              colorPrimary: "#F8B01C",
-              colorSuccess :" #273369",
-              colorTextSecondary: "#17427A",
-              fontFamily: "Cairo",
-            },
-          }}
-        >
-          <Suspense
-            fallback={
-              <div className="spinner-container">
-                <Spin size="default" />
-              </div>
-            }
+              token: {
+                colorPrimary: "#F8B01C",
+                colorSuccess: " #273369",
+                colorTextSecondary: "#17427A",
+                fontFamily: "Cairo",
+              },
+            }}
           >
-            <LazyComponent />
-          </Suspense>
-        </ConfigProvider>
-      </AppContextProvider>
+            <Suspense
+              fallback={
+                <div className="spinner-container">
+                  <Spin size="default" />
+                </div>
+              }
+            >
+              <LazyComponent />
+            </Suspense>
+          </ConfigProvider>
+        </AppContextProvider>
       </EditContextProvider>
+    </DndProvider>
   </BrowserRouter>
 );

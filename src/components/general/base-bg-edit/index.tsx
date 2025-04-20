@@ -38,7 +38,7 @@ const BaseBagEdit: React.FC = () => {
                     isBetween(offset.y, el.locationY ?? 0, el.locationY ?? 0 + 200)
                 );
                 widghets?.map((el) => {
-                    console.log(el.locationX, offset.x)
+                    console.log(widghets, offset.x ,existingWidget)
                     if (el.id === item.id && el.locationX) {
                         if (!existingWidget) {
                             setCards((prevCards) =>
