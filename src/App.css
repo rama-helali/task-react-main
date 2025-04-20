@@ -1,0 +1,19 @@
+.custom-green-button.ant-btn {
+  background-color: #52c41a !important; /* Green color */
+  border-color: #52c41a !important;
+}
+
+.custom-green-button.ant-btn:hover,
+.custom-green-button.ant-btn:focus {
+  background-color: #389e0d !important; /* Darker green on hover/focus */
+  border-color: #389e0d !important;
+}
+
+.create-ant-descriptions-row.ant-descriptions-item-label {
+  background-color: #00123b !important;
+}
+
+.create-ant-descriptions-row.ant-descriptions-row {
+  background-color: #00123b !important;
+}
+

@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Cairo";
+  src: local("Cairo"),
+    url("./assets/fonts/Cairo-Regular.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Cairo";
+}
+::selection {
+  background-color: #f8b01c;
+  color: white;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #f8b01c;
+  transition: background-color 0.2s ease-in-out;
+  border-radius: 0.5rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #f8af1cb4;
+}
+
+.ant-menu .ant-menu-inline.ant-menu-sub {
+  background: #1a1d2057 !important;
+}
+
+.ant-menu .ant-menu-sub.ant-menu-vertical {
+  background: #212529 !important;
+}
+
+.spinner-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.send-button {
+  background: linear-gradient(217deg, #39e56a 23.18%, #e4e900 78.43%);
+}
+
+.send-button:hover {
+  background: linear-gradient(217deg, #39e56ac1 23.18%, #e5e900c4 78.43%);
+}
+
+.audio-recorder-container {
+  background-color: white !important;
+}
+
+.audio-recorder-container .recording .audio-recorder-mic {
+  /* display: none !important; */
+  content: url("/src/assets/send.svg");
+}
+
+/* .audio-recorder-play-button::before {
+  content: url("/assets/send.svg");
+} */
+
+.audio-recorder-pause-button::before {
+  content: url("/src/assets/send.svg");
+}
+
+.chat-tabs .ant-tabs-nav {
+  width: 100%;
+}
+.chat-tabs .ant-tabs-card .ant-tabs-nav .ant-tabs-tab {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.custom-popover .ant-popover-inner {
+  background-color: transparent !important;
+}
+
+.rbc-event {
+  background-color: #0239B6 !important;
+  border-color: #0239B6;
+}
