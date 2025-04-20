@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Col, Drawer, Flex, Input, Row, Tabs, Tag, Typography } from 'antd';
 import { TabsProps } from 'antd/lib';
 import styles from "./style.module.scss";
 import { CloseOutlined, SearchOutlined } from "@ant-design/icons";
 import CardWidget from '../card-widget';
+import EditContext from '../../../context/edit/context';
 
 interface IProps {
     open: boolean;
@@ -11,6 +12,7 @@ interface IProps {
 }
 
 const DrawerEdit: React.FC<IProps> = ({ open, setOpen }) => {
+    const { widghets, actions } = useContext(EditContext);
     const items: TabsProps['items'] = [
         {
             key: '1',
@@ -53,12 +55,18 @@ const DrawerEdit: React.FC<IProps> = ({ open, setOpen }) => {
                     <Tag style={{ backgroundColor: "#EEEEEE" }}>Informative Widgets (3)</Tag>
                     <Tag style={{ backgroundColor: "#EEEEEE" }}>Statistics Widgets (3)</Tag>
                 </Row>
+
                 <Row>
-                    <CardWidget image="imageDrawer1.png" title="Average Age Chart" description="Lorem ipsum is placeholder text commonly used in the graphic...."></CardWidget>
-                    <CardWidget image="imageDrawer1.png" title="Average Age Chart" description="Lorem ipsum is placeholder text commonly used in the graphic...."></CardWidget>
-                    <CardWidget image="imageDrawer1.png" title="Average Age Chart" description="Lorem ipsum is placeholder text commonly used in the graphic...."></CardWidget>
-                    <CardWidget image="imageDrawer1.png" title="Average Age Chart" description="Lorem ipsum is placeholder text commonly used in the graphic...."></CardWidget>
-                    <CardWidget image="imageDrawer1.png" title="Average Age Chart" description="Lorem ipsum is placeholder text commonly used in the graphic...."></CardWidget>
+                    {
+                        Array.from({ length: 5 }, (_, index) =>
+                            <div onClick={() => actions.addWidghets({ image: "imageDrawer1.png", id: widghets?.length + 1, title: "Average Age Chart", description: "Lorem ipsum is placeholder text commonly used in the graphic...." })}>
+                                <CardWidget
+                                    image="imageDrawer1.png"
+                                    title="Average Age Chart"
+                                    description="Lorem ipsum is placeholder text commonly used in the graphic...."></CardWidget>
+                            </div>
+                        )
+                    }
                 </Row>
 
             </Drawer>

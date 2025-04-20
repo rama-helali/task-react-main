@@ -5,6 +5,7 @@ import { ConfigProvider, Spin } from "antd";
 import AppContextProvider from "./context/app/provider";
 import { BrowserRouter } from "react-router-dom";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import EditContextProvider from "./context/edit/provider";
 
 const LazyComponent = React.lazy(() => import("./App"));
 
@@ -13,6 +14,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <BrowserRouter>
+  <EditContextProvider>
       <AppContextProvider>
         <ConfigProvider
           theme={{
@@ -41,5 +43,6 @@ root.render(
           </Suspense>
         </ConfigProvider>
       </AppContextProvider>
+      </EditContextProvider>
   </BrowserRouter>
 );

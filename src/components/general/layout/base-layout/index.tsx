@@ -15,7 +15,7 @@ const BaseLayout: React.FC<IProps> = ({ children }) => {
                 <NavBar></NavBar>
                 <Content
                     style={{
-                        minHeight: "90vh",
+                        minHeight: "80vh",
                         overflow: "hidden",
                         backgroundColor: "white"
                     }}

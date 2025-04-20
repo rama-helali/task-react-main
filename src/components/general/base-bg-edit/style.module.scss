@@ -3,7 +3,6 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
 }
 
 .bgContainer {
@@ -22,5 +21,7 @@
 .content {
   position: relative;
   z-index: 1; // Ensure it stays above the circles
-  overflow: hidden;
+  overflow: scroll;
+  height: 100vh;
+
 }

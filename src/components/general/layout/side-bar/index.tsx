@@ -15,7 +15,7 @@ const SideBar: React.FC<IProps> = ({ children, }) => {
     const { collapsed, actions } = useContext(AppContext);
 
     return (
-        <Layout>
+        <Layout >
             <Sider className={styles.sideBar} trigger={null} collapsible collapsed={collapsed == "open" ? false : true}>
                <div  className={styles.componentSideBar}>
                <Button
